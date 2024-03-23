@@ -103,7 +103,9 @@ public class MetronomePlugin implements FlutterPlugin, MethodCallHandler {
     context = null;
     channel.setMethodCallHandler(null);
     eventTick.setStreamHandler(null);
-    metronome.destroy();
+    if (metronome != null) {
+      metronome.destroy();
+    }
   }
 
   private void metronomeInit(@NonNull MethodCall call) {
